@@ -1,21 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Button } from "react-bootstrap";
-import WeatherCard from "./weatherCard";
+import WeatherCard from "../components/weatherCard";
 import Todo from "../components/toDo";
+import Error from "../components/error";
 
 export default function Tools() {
   const todoNameRef = useRef();
   const [data, setData] = useState([]);
   const [toDoList, setToDos] = useState([]);
-  const [error, showError] = useState([]);
+  const [error, showError] = useState(false);
+  const [weathError, showWeathError] = useState(false);
 
   useEffect(() => {
+    showWeathError(false);
     const fetchData = async () => {
       await fetch(`https://api.openweathermap.org/data/2.5/weather/?lat=44.389355&lon=-79.690331&units=metric&APPID=92ad8d24c25849a4bd4e688a9a31031e`)
         .then((res) => res.json())
         .then((result) => {
           setData(result);
-          console.log(result);
         });
     };
     fetchData();
@@ -23,8 +25,11 @@ export default function Tools() {
 
   const handleSubmit = () => {
     const newValue = todoNameRef.current.value;
-    if (newValue === "") return;
-    console.log(newValue);
+    showError(false);
+    if (newValue === "") {
+      showError(true);
+      return;
+    }
     setToDos([...toDoList, { text: newValue, completed: false }]);
     todoNameRef.value = null;
     document.getElementById("textInputField").value = "";
@@ -56,12 +61,13 @@ export default function Tools() {
             Add ToDo
           </Button>
         </div>
+        <Error showError={showError} error={error} />
       </div>
 
-      <div className="container py-5" style={{ width: "25rem" }}>
+      <div className="container pb-5" style={{ width: "25rem" }}>
         <h1 className="font-weight-bold header-animated py-4">Weather App</h1>
         <div className="align-items-center justify-content-center">
-          <WeatherCard weatherData={data} />
+          <WeatherCard weatherData={data} showError={showWeathError} error={weathError} />
         </div>
       </div>
     </>
