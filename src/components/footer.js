@@ -4,8 +4,8 @@ import React from "react";
 function Footer() {
   return (
     <footer className="footer py-2 bg-dark border-top text-center small text-muted py-3">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; SMV Dilshan 2022</p>
+      <div className="container">
+        <p className="m-0 text-center text-white">Copyright &copy; SMV Dilshan 2022</p>
       </div>
     </footer>
   );

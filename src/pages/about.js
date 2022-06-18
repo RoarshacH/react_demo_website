@@ -10,7 +10,7 @@ function About() {
           </div>
         </div>
       </section>
-      <div classNameName="container mt-5">
+      <div className="container mt-5">
         <section className="body-section p-3 p-lg-5 d-flex justify-content-center">
           <div className="w-100">
             <div className="row pt-4">
