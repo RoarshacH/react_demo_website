@@ -119,6 +119,10 @@ html {
   background-size: cover;
 }
 
+.fw-light {
+  padding-top: 20px;
+}
+
 .custom-img img {
   width: 15rem;
 }
@@ -162,4 +166,21 @@ html {
 
 .addInputItems {
   padding-top: 2rem;
+}
+
+/* Responsive Stuff */
+@media (max-width: 768px) {
+  .custom-button {
+    background-color: #fdefd4;
+    color: #48687f;
+  }
+  .custom-img {
+    display: none;
+  }
+  .link-btn {
+    display: none;
+  }
+  .col-md-6.custom-table-container {
+    margin-top: 100px;
+  }
 }

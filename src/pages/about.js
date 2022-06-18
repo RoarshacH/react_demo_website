@@ -13,11 +13,11 @@ function About() {
       <div classNameName="container mt-5">
         <section className="body-section p-3 p-lg-5 d-flex justify-content-center">
           <div className="w-100">
-            <div className="row">
+            <div className="row pt-4">
               <div className="col-md-4 custom-img">
                 <img src={require("../assests/user.png")} className="img-thumbnail img-responsive" alt="" />
               </div>
-              <div className="col-md-6">
+              <div className="col-md-6 custom-table-container">
                 <table className="table table-borderless custom-table fw-normal">
                   <tbody>
                     <tr>
